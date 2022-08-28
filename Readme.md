@@ -1,6 +1,6 @@
 Ensure you have python --version 3.8.x
 
-Clone the repository, enter it and run  ```pipenv sync  ``` in order to download all the dependencies
+Clone the repository, enter it and run  ```pipenv sync```  in order to download all the dependencies
 
 run  ```pipenv shell```
 
