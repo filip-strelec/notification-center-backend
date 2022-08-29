@@ -16,10 +16,10 @@ def get_users():
 
 #Get User Login
 user_login_blueprint = Blueprint('user_login_blueprint', __name__)
-@user_login_blueprint.route('/users/<name>', methods=['GET'])
-def get_users(name):
+@user_login_blueprint.route('/users/<user_name>', methods=['GET'])
+def get_users(user_name):
     from pythonRest import User, user_schema
-    user = User.query.filter_by(name=name).first()
+    user = User.query.filter_by(user_name=user_name).first()
     print(user_schema.dump(user))
 
     return jsonify(user_schema.dump(user))
