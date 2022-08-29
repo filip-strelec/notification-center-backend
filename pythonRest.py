@@ -4,7 +4,7 @@ from flask_marshmallow import Marshmallow
 import os
 from dotenv import load_dotenv
 import json
-from routes import all_users_blueprint, add_user_blueprint, create_notification_blueprint, list_user_notifications_blueprint, delete_notification_blueprint, update_notification_blueprint
+from routes import all_users_blueprint, add_user_blueprint, create_notification_blueprint, list_user_notifications_blueprint, delete_notification_blueprint, update_notification_blueprint, user_login_blueprint
 
 #Load the env variables
 load_dotenv()
@@ -91,6 +91,7 @@ app.register_blueprint(create_notification_blueprint) # /create-notif POST
 app.register_blueprint(list_user_notifications_blueprint) # /list-notifs/<unique_hash> GET
 app.register_blueprint(delete_notification_blueprint) # /delete-notif/<id>
 app.register_blueprint(update_notification_blueprint) # /update-notif/<id>
+app.register_blueprint(user_login_blueprint) # /users/<name>
 
 #Start the server
 if __name__ == "__main__":

@@ -6,11 +6,23 @@ import uuid
 all_users_blueprint = Blueprint('all_users_blueprint', __name__)
 @all_users_blueprint.route('/users', methods=['GET'])
 def get_users():
-    from pythonRest import User, db, users_schema, user_schema, notifications_schema, notification_schema
+    from pythonRest import User, users_schema
     all_users = User.query.all()
     print(users_schema.dump(all_users))
 
     return jsonify(users_schema.dump(all_users))
+
+
+
+#Get User Login
+user_login_blueprint = Blueprint('user_login_blueprint', __name__)
+@user_login_blueprint.route('/users/<name>', methods=['GET'])
+def get_users(name):
+    from pythonRest import User, user_schema
+    user = User.query.filter_by(name=name).first()
+    print(user_schema.dump(user))
+
+    return jsonify(user_schema.dump(user))
 
 
 
